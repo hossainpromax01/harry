@@ -137,4 +137,54 @@ function footer_menu(){
        'walker'     => new Harry_Walker_Nav_Menu,
  ) ); 
  }
-
+// harry single post dynamic
+function harry_tags(){
+	$post_tags = get_the_tags();
+    if ($post_tags) {
+        foreach ($post_tags as $tag) {
+            ?>
+            <a href="<?php echo get_tag_link($tag); ?>"><?php echo $tag->name; ?></a>
+            <?php
+        }
+    } else {
+        ?>
+        <i>No tags found</i>
+        <?php
+    }
+}
+// harry post social share 
+function harry_social_share(){ ?>
+          <a href="https://www.linkedin.com/shareArticle?url=<?php the_permalink(); ?>" target="_blank">
+              <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>" target="_blank">
+              <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+          </a>
+  <?php
+  }
+ // harry pagination
+ function harry_pagination(){
+      $pages = paginate_links( array( 
+          'type' => 'array',
+          'prev_text'    => __('<svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.17749 10.105L1.62499 5.55248L6.17749 0.999981" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14.3767 5.55249L1.75421 5.55249" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+       </svg>                                       
+       Prev'),
+          'next_text'    => __('Next
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M9.82422 1L14.3767 5.5525L9.82422 10.105" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M1.625 5.55249H14.2475" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg> '),
+      ) );
+          if( $pages ) {
+          echo '<nav><ul>';
+          foreach ( $pages as $page ) {
+              echo "<li>$page</li>";
+          }
+          echo '</ul></nav>';
+      }
+  }

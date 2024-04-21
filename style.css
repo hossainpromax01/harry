@@ -28,3 +28,9 @@ ul#menu-footer-menu li {
   section.breadcrumb__area.pt-130.pb-115.breadcrumb__style-10.black-bg.p-relative.z-index-1 {
   display: none !important;
 }
+.postbox__comment.mb-95 {
+  list-style: none !important;
+}
+.postbox__comment.mb-95 li {
+  margin-top: 20px !important;
+}

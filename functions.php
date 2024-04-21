@@ -85,6 +85,7 @@ add_action( 'widgets_init', 'harry_widget' );
 
 //harry theme script includes
 include_once('inc/common/scripts.php');
+include_once('inc/common/comments-form-list.php');
 //harry theme kirkiri includes
 if ( class_exists( 'Kirki' ) ) {
 	include_once('inc/kirki-customizer.php');

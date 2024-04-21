@@ -26,38 +26,7 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="postbox__more-navigation white-bg d-none d-md-flex justify-content-between flex-wrap mb-40">
-                                       <div class="postbox__more-left d-flex align-items-center">
-                                          <div class="postbox__more-icon">
-                                             <a href="blog-details.html">
-                                                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                   <path d="M7 12.9718L2.06061 8.04401C1.47727 7.46205 1.47727 6.50975 2.06061 5.92778L7 1" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </svg>
-                                             </a>
-                                          </div>
-                                          <div class="postbox__more-content">
-                                             <p>Previous Article</p>
-                                             <h4>
-                                                <a href="blog-details.html">Traveling Solo Is Awesome</a>
-                                             </h4>
-                                          </div>
-                                       </div>
-                                       <div class="postbox__more-right d-flex align-items-center">
-                                          <div class="postbox__more-content">
-                                             <p>Next Article</p>
-                                             <h4>
-                                                <a href="blog-details.html">A Beautiful Sunday Morning</a>
-                                             </h4>
-                                          </div>
-                                          <div class="postbox__more-icon">
-                                             <a href="blog-details.html">
-                                                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                   <path d="M1 12.9718L5.93939 8.04401C6.52273 7.46205 6.52273 6.50975 5.93939 5.92778L1 1" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </svg>                                                      
-                                             </a>
-                                          </div>
-                                       </div>
-                                    </div>    
+                                      
       </article>
 <?php else : ?>
 <article id="<?php the_ID(); ?>" <?php post_class("harry-post-format-standard postbox__item format-image mb-50 transition-3"); ?> >

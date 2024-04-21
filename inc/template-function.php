@@ -152,6 +152,9 @@ function harry_tags(){
         <?php
     }
 }
+
+
+
 // harry post social share 
 function harry_social_share(){ ?>
           <a href="https://www.linkedin.com/shareArticle?url=<?php the_permalink(); ?>" target="_blank">
@@ -186,5 +189,31 @@ function harry_social_share(){ ?>
               echo "<li>$page</li>";
           }
           echo '</ul></nav>';
+      }
+  }
+
+
+
+// track_post_views
+function track_post_views() {
+      if (is_single()) {
+          global $post;
+          $post_id = $post->ID;
+  
+          $views = get_post_meta($post_id, 'post_views', true);
+          $views = $views ? $views : 0;
+  
+          $views++;
+          update_post_meta($post_id, 'post_views', $views);
+      }
+  }
+  
+  add_action('wp_head', 'track_post_views');
+  
+  // display_post_views 
+  function display_post_views() {
+      if (is_single()) {
+          $post_views = get_post_meta(get_the_ID(), 'post_views', true);
+          echo ($post_views ? $post_views : 0);
       }
   }

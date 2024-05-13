@@ -80,6 +80,15 @@ function harry_widget() {
 		'before_title'  => '<h3 class="footer__widget-title">',
 		'after_title'   => '</h3>',
 	) );
+	register_sidebar( array(
+		'name'          => __( 'Blog Sidebar', 'harry' ),
+		'id'            => 'blog-sidebar',
+		'description'   => __( 'Blog Sidebar', 'harry' ),
+		'before_widget' => '<div id="%1$s" class="sidebar__widget mb-40 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="sidebar__widget-title">',
+		'after_title'   => '</h3>',
+	) );
 }
 add_action( 'widgets_init', 'harry_widget' );
 
@@ -96,6 +105,8 @@ include_once('inc/template-function.php');
 include_once('inc/nav-walker.php');
 //harry theme breadcrumb
 include_once('inc/breadcrumb.php');
+//harry latest post widget
+include_once('inc/sidebar-rc-post-widget.php');
 
 
 

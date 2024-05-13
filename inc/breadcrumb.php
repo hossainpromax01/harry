@@ -43,16 +43,18 @@ function harry_breadcrumb(){
 
 
     $breadcrumb_bg_img = get_theme_mod('breadcrumb_banner_mage');
-
+    $breadcrumb_switch = function_exists('get_field') ? get_field('breadcrum_on_of') : null;
+// var_dump($breadcrumb_switch);
     ?>
  <!-- breadcrumb area start -->
+<?php if($breadcrumb_switch) : ?>
  <section class="breadcrumb__area pt-130 pb-115 breadcrumb__style-10 black-bg p-relative z-index-1">
             <div class="breadcrumb__bg-4 breadcrumb__bg-overlay m-img include-bg" data-background="<?php echo esc_url($breadcrumb_bg_img); ?>"></div>
                <div class="container">
                   <div class="row justify-content-center">
                      <div class="col-xl-10">
                         <div class="breadcrumb__content text-center">
-                           <h3 class="breadcrumb__title"><?php echo esc_html($title); ?></h3>
+                           <h3 class="breadcrumb__title"><?php echo $title; ?></h3>
                            <div class="breadcrumb__list">
                            <?php if(function_exists('bcn_display'))
                                 {
@@ -66,7 +68,7 @@ function harry_breadcrumb(){
                </div>
          </section>
          <!-- breadcrumb area end -->
-
+<?php endif; ?>
 <?php
 }
 

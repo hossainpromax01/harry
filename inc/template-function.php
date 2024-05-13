@@ -4,22 +4,43 @@
 //harry header 
 function harry_header(){
       $harry_header_version = get_theme_mod( 'header_select', __('header-01','harry'));
+      $header_option_acf = function_exists('get_field') ? get_field('header_type_select') : null;
       // var_dump($harry_header_version);
-      if($harry_header_version=='header-01'){
-            get_template_part('template-parts/header/header-1');
-      }
-      elseif($harry_header_version=='header-02'){
-            get_template_part('template-parts/header/header-2');
-      }
-      elseif($harry_header_version=='header-03'){
-            get_template_part('template-parts/header/header-3');
-      }
-      elseif($harry_header_version=='header-04'){
-            get_template_part('template-parts/header/header-4');
+      if($header_option_acf) {
+            if($header_option_acf=='header_01'){
+                  get_template_part('template-parts/header/header-1');
+            }
+            elseif($header_option_acf=='header_02'){
+                  get_template_part('template-parts/header/header-2');
+            }
+            elseif($header_option_acf=='header_03'){
+                  get_template_part('template-parts/header/header-3');
+            }
+            elseif($header_option_acf=='header_04'){
+                  get_template_part('template-parts/header/header-4');
+            }
+            else{
+                  get_template_part('template-parts/header/header-5');
+            }
       }
       else{
-            get_template_part('template-parts/header/header-5');
+            if($harry_header_version=='header-01'){
+                  get_template_part('template-parts/header/header-1');
+            }
+            elseif($harry_header_version=='header-02'){
+                  get_template_part('template-parts/header/header-2');
+            }
+            elseif($harry_header_version=='header-03'){
+                  get_template_part('template-parts/header/header-3');
+            }
+            elseif($harry_header_version=='header-04'){
+                  get_template_part('template-parts/header/header-4');
+            }
+            else{
+                  get_template_part('template-parts/header/header-5');
+            }
       }
+     
 	
 }
 
@@ -217,3 +238,22 @@ function track_post_views() {
           echo ($post_views ? $post_views : 0);
       }
   }
+  // Add filter to customize search form
+function harry_search_form( $search_form ) {
+      $search_form = '<div class="sidebar__search">
+                  <form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
+                      <div class="sidebar__search-input">
+                          <input type="search" class="search-field" placeholder="' . esc_attr_x( 'Enter your keywords...', 'harry' ) . '" value="' . get_search_query() . '" name="s" />
+                          <button type="submit" class="search-submit">
+                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M9.55 18.1C14.272 18.1 18.1 14.272 18.1 9.55C18.1 4.82797 14.272 1 9.55 1C4.82797 1 1 4.82797 1 9.55C1 14.272 4.82797 18.1 9.55 18.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M19.0002 19.0002L17.2002 17.2002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                          </button>
+                      </div>
+                  </form>
+              </div>';
+  
+      return $search_form;
+  }
+  add_filter( 'get_search_form', 'harry_search_form' );

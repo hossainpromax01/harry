@@ -50,3 +50,6 @@ body .testimonial__slider-9-thumb-nav img {
 .tp-btn-6 {
   padding: 0 33px 15px 33px !important;
 }
+.portfolio__details-img-list-social.d-flex.flex-column {
+  z-index: 9999 !important;
+}

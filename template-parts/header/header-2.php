@@ -41,8 +41,5 @@
       </header>
       <!-- header area end -->
 
-      <!-- offcanvas area start -->
-      <?php harray_offcanvas(); ?>
-      <div class="body-overlay"></div>
-      <!-- offcanvas area end -->
+      <?php echo do_action( 'harry_offcanvas_header_search_merge'); ?>
 

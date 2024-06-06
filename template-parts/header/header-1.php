@@ -134,11 +134,4 @@ $header_time = get_theme_mod( 'header_time', __('Sunday-Thures 10am-07pm'));
       </header>
       <!-- header area end -->
 
-      <!-- offcanvas area start -->
-         <?php harray_offcanvas(); ?>
-      <div class="body-overlay"></div>
-      <!-- offcanvas area end -->
-
-      <!-- search popup start -->
-         <?php harray_header_search(); ?>
-      <!-- search popup end --> 
+     <?php echo do_action( 'harry_offcanvas_header_search_merge'); ?>
